@@ -13,5 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run basic tests
-        run: ./scripts/run_tests.sh
+        run: |
+         mkdir -p cmake_build && \
+         cd ./cmake_build && \
+         cmake .. && \
+         make && \
+         ctest -V
 
